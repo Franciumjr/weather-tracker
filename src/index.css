@@ -1,0 +1,12 @@
+@import "tailwindcss";
+body {
+  @apply absolute inset-0 justify-center h-screen ;
+}
+
+.weather{
+  @apply flex flex-col items-center  mt-20 text-center;
+  .city {
+    @apply text-4xl font-bold;
+  }
+  
+}
