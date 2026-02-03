@@ -29,18 +29,18 @@ const Weather = ({currentWeather}) => {
     ]
 
   return (
-    <div className="weather">
+    <div className="weather w-96 ">
         <div className="top">
             <p className="city">{currentWeather?.city}</p>
             <div className="current-weather flex-center gap-4">
-                <img src="/weather-icons-main/animated/clear-day.svg" alt="current-weather" />
+                <img src={currentWeather?.weather?.[0]?.icon ? `https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png` : ""} alt="current-weather" />
                 <p>{currentWeather?.weather?.[0]?.description}</p>
             </div>
             
         </div>
         <div className="bottom">
             <div className="temperature">{Math.round(currentWeather?.main?.temp)}°C</div>
-            <div className="details">
+            <div className="details ">
                 {parameters.map((param, index) => (
                     <div key={index} className="parameter-row">
                         <span className="parameter-label">{param.label} : </span>

@@ -1,6 +1,7 @@
 
 import Search from './components/Search.jsx'
 import Weather from './components/Weather.jsx'
+import Forecast from './components/Forecast.jsx';
 import { WEATHER_API_URL, WEATHER_API_KEY } from './api.jsx';
 import { useState } from 'react';
 
@@ -37,10 +38,13 @@ console.log(currentWeather);
 console.log(forecast);
 
   return (
-    <>
-      <Search onSearchChange={handleonSearchChange}></Search>
-      {currentWeather && <Weather currentWeather={currentWeather} forecast={forecast}></Weather>}
-    </>
+    <div className="flex flex-col items-center justify-center min-h-screen  mt-5">
+      <h1 className="text-3xl font-bold mb-4 font-mono">weather_app</h1>
+      <Search className="w-1/2" onSearchChange={handleonSearchChange}></Search>
+      {currentWeather && <Weather currentWeather={currentWeather} ></Weather>}
+      {forecast && <Forecast forecast={forecast}></Forecast>}
+
+    </div>
   )
   
 }
