@@ -1,12 +1,31 @@
 @import "tailwindcss";
+
 body {
-  @apply absolute inset-0 justify-center h-screen ;
+  @apply flex  inset-0 justify-center h-screen ;
+}
+.flex-center {
+  @apply flex justify-center items-center h-full;
 }
 
 .weather{
-  @apply flex flex-col items-center  mt-20 text-center;
+  @apply rounded-xl text-slate-700 items-center justify-center py-7 px-15 mt-20 text-center shadow-sm;
   .city {
-    @apply text-4xl font-bold;
+    @apply text-3xl font-bold;
   }
-  
+  .current-weather {
+    @apply  mt-5 flex justify-center items-center font-semibold text-2xl;
+    
+    img {
+      @apply w-30 h-auto;
+    }
+  }
+  .temperature {
+    @apply text-6xl font-bold mb-5;
+  }
+  .details {
+    .parameter-value {
+      @apply font-semibold ;
+    }
+  }
 }
+

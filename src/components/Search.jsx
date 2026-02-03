@@ -29,7 +29,7 @@ const Search = ({onSearchChange}) => {
         onSearchChange(searchData);
     }
   return (
-    <div className=' mt-4 w-1/2 translate-x-1/2'>
+    <div className=' mt-4 '>
       <AsyncPaginate  placeholder="Search for a city..." 
       debounceTimeout={500} 
       onChange={handleOnChange}
