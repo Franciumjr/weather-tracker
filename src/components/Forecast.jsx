@@ -1,6 +1,5 @@
 import React from 'react'
-import { Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, AccordionItemPanel } from 'react-accessible-accordion';
-
+import * as Accordion from '@radix-ui/react-accordion';
 const WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const Forecast = ({forecast}) => {
@@ -14,11 +13,11 @@ const Forecast = ({forecast}) => {
   return (
     <div className='flex'>
         
-      <Accordion allowZeroExpanded className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-10 '>
+      <Accordion.Root allowZeroExpanded className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-10 '>
         {forecast.list.slice(0, 7).map((forecastItem, index) => (
-            <AccordionItem key={index}>
-                <AccordionItemHeading >
-                    <AccordionItemButton className='cursor-pointer text-center font-mono  p-4 rounded-2xl shadow-md hover:bg-zinc-200 transition-all duration-300 hover:-translate-y-0.5'>
+            <Accordion.Item key={index}>
+                <Accordion.Header>
+                    <Accordion.Trigger className='cursor-pointer text-center font-mono  p-4 rounded-2xl shadow-md hover:bg-zinc-200 transition-all duration-300 hover:-translate-y-0.5'>
                         <label className='font-bold' htmlFor="">{reorderedWeek[index]}</label>
                         <div className="daily-item flex-col font-mono items-center gap-4 ">
                             
@@ -30,16 +29,15 @@ const Forecast = ({forecast}) => {
                                 {Math.round(forecastItem.main.temp_min)}°C / {Math.round(forecastItem.main.temp_max)}°C
                             </div>
                         </div>
-                    </AccordionItemButton>
-                </AccordionItemHeading>
-                <AccordionItemPanel>
-                </AccordionItemPanel>
-            </AccordionItem>
+                    </Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content></Accordion.Content>
+            </Accordion.Item>
         ))}
             
             
         
-      </Accordion>
+      </Accordion.Root>
     </div>
   )
 }
